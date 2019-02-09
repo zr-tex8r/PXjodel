@@ -1,0 +1,188 @@
+%%
+%% This is file 'pxjodel.sty'.
+%% 
+%% Copyright (c) 2019 Takayuki YATO (aka. "ZR")
+%%   GitHub:   https://github.com/zr-tex8r
+%%   Twitter:  @zr_tex8r
+%%
+%% This package is distributed under the MIT License.
+%%
+
+%% package declaration
+\NeedsTeXFormat{pLaTeX2e}
+\ProvidesPackage{pxjodel}[2019/02/02 v0.2]
+\def\pxjo@pkgname{pxjodel}
+%
+\providecommand\bxDebug[1]{}
+
+%--------------------------------------- general
+
+%% packages
+\RequirePackage{xkeyval}
+\RequirePackage{ifuptex}
+
+%% unique tokens
+\def\pxjo@end{\pxjo@end@}
+\def\pxjo@mt{\pxjo@mt@}
+
+%--------------------------------------- options
+
+%% variables
+\let\pxjo@prefix\@empty
+\@onlypreamble\pxjo@thru
+\let\pxjo@thru\@empty
+
+%% prefix=...
+\define@cmdkey{pxjo}[pxjo@]{prefix}{}
+%% dispatch
+\edef\next{%
+  \noexpand\setkeys*{pxjo}{\@nameuse{opt@\@currname.\@currext}}%
+}\next
+\AtEndOfPackage{\let\@unprocessedoptions\relax}%
+% other options are passed to otf
+\let\pxjo@thru\XKV@rm
+
+%% check
+\ifx\pxjo@prefix\@empty
+  \PackageError\pxjo@pkgname
+   {Option 'prefix' is not given}%
+   {\@ehc}
+\expandafter\endinput\fi\relax
+
+%% load 'otf' package
+\@ifpackageloaded{otf}{%
+  \ifx\pxjo@thru\@empty\else
+    \PackageError\pxjo@pkgname
+     {Package 'otf' is already loaded; the extra options\MessageBreak
+      (\pxjo@thru)\MessageBreak
+      cannot be passed}
+     {\@ehc}
+  \fi
+}{%else
+  \edef\next{%
+    \noexpand\RequirePackage[\pxjo@thru]{otf}%
+  }\next
+}
+
+%======================================= 
+% All the code below is executed in a big group.
+\begingroup
+%--------------------------------------- helpers
+
+%% variables
+\let\pxjo@pre\relax
+\let\pxjo@post\relax
+
+%% \pxjo@split{<at>}{<target>}
+\def\pxjo@split#1#2{%
+  \edef\pxjo@tmpx{{#1}{#2}}%
+  \expandafter\pxjo@split@a\pxjo@tmpx}
+\def\pxjo@split@a#1#2{%
+  \def\pxjo@tmpx##1#1##2\pxjo@end{\pxjo@split@b{##1}{##2}}%
+  \pxjo@tmpx#2\pxjo@mt#1\pxjo@end}
+\def\pxjo@split@b#1#2{%
+  \let\pxjo@pre\relax \let\pxjo@post\relax
+  \ifx\pxjo@end#2\pxjo@end\else
+    \pxjo@split@c#2\pxjo@end{#1}%
+  \fi}
+\def\pxjo@split@c#1\pxjo@mt#2\pxjo@end#3{%
+  \def\pxjo@pre{#3}\def\pxjo@post{#1}}
+
+%% \pxjo@JY/\pxjo@JT
+\ifNativeupTeX
+\def\pxjo@JY{JY2}\def\pxjo@JT{JT2}
+\else
+\def\pxjo@JY{JY1}\def\pxjo@JT{JT1}
+\fi
+
+%% \pxjo@reset@size
+\def\pxjo@reset@size{10}
+\ifdim\f@size\p@=10\p@\else
+  \edef\pxjo@reset@size{\pxjo@reset@size,\f@size}
+\fi
+\ifx\jsc@JYn\@undefined\else %jsclasses
+  \begingroup
+    \footnotesize \xdef\@gtempa{\f@size}
+  \endgroup
+  \edef\pxjo@reset@size{\pxjo@reset@size,\@gtempa}
+\fi
+\bxDebug{jodel:reset@size=\pxjo@reset@size}
+
+%--------------------------------------- main process
+
+%% variables
+\let\pxjo@scale\relax
+\let\pxjo@tfm\relax
+\let\pxjo@newtfm\relax
+
+%% \pxjo@parse@spec{E/F/S/S}
+% Sets \pxjo@scale and \pxjo@tfm.
+\edef\pxjo@tmpb{%
+  {\expandafter\string\csname<->s\endcsname*[}{]}{$}}
+\def\pxjo@tmpa#1#2#3{%
+  \def\pxjo@parse@spec##1{%
+    \let\pxjo@scale\relax\let\pxjo@tfm\relax
+    \expandafter\expandafter\expandafter\pxjo@parse@spec@a
+        \csname##1\endcsname}%
+  \def\pxjo@parse@spec@a##1{%
+    \expandafter\pxjo@parse@spec@b\string##1#3#1#2#3\pxjo@end}
+  \def\pxjo@parse@spec@b##1#1##2#2##3#3##4\pxjo@end{%
+    \ifx\pxjo@mt##4\pxjo@mt\else
+      \def\pxjo@scale{##2}\def\pxjo@tfm{##3}%
+      \ifx\pxjodelReplaceExpertTfm\@undefined\else
+        \pxjo@change@tfm
+      \fi
+   \fi}%
+}\expandafter\pxjo@tmpa\pxjo@tmpb
+
+%% \pxjo@change@tfm
+\def\pxjo@tmpb#1/#2/#3/#4\pxjo@end{%
+  \def\pxjo@change@tfm{%
+    \pxjo@change@tfm@a{#2}{#4}%
+    \pxjo@change@tfm@a{#3}{#4}}
+}\def\pxjo@tmpa{/exp/ruby/nml}
+\expandafter\pxjo@tmpb\meaning\pxjo@tmpa\pxjo@end
+\def\pxjo@change@tfm@a#1#2{%
+  \pxjo@split{#1}\pxjo@tfm\ifx\pxjo@pre\relax\else
+    \edef\pxjo@tfm{\pxjo@pre#2\pxjo@post}%
+  \fi}
+
+%% \pxjo@@zu
+\def\pxjo@tmpb#1/#2\pxjo@end{%
+  \def\pxjo@@zu{#2}%
+}\def\pxjo@tmpa{/zu-}
+\expandafter\pxjo@tmpb\meaning\pxjo@tmpa\pxjo@end
+
+%% \pxjo@process@one
+\def\pxjo@process@one#1#2#3#4#5{%
+\bxDebug{jodel:process(#1;#2/#3/#4/#5)}%
+  \pxjo@parse@spec{#2/#3/#4/#5}%
+  \ifx\pxjo@tfm\relax\else
+    \pxjo@split{\pxjo@@zu}{\pxjo@tfm}%
+    \ifx\pxjo@pre\@empty
+      \edef\pxjo@newtfm{\pxjo@@zu\pxjo@prefix--\pxjo@post}%
+    \else
+      \edef\pxjo@newtfm{\pxjo@prefix--\pxjo@tfm}%
+    \fi
+\bxDebug{spec=\pxjo@scale:\pxjo@tfm:\pxjo@newtfm}%
+    \DeclareFontShape{#2}{#3}{#4}{#5}{<->s*[\pxjo@scale]\pxjo@newtfm}{}%
+    \if t#1%
+      \@for\pxjo@tmpa:=\pxjo@reset@size\do{%
+        \global\expandafter\let\csname#2/#3/#4/#5/\pxjo@tmpa
+            \endcsname\relax}%
+    \fi
+  \fi}
+
+%% process
+\@for\pxjo@w:={\pxjo@JY,\pxjo@JT}\do{%
+  \@for\pxjo@x:={hmc,hgt,mg,ruby,rubyg,rubymg}\do{%
+    \@for\pxjo@y:={l,m,bx,eb}\do{%
+      \expandafter\ifx\csname\pxjo@w/\pxjo@x/\pxjo@y/n\endcsname\relax\else
+        \expandafter\let\csname pxjo@DF/\pxjo@x\endcsname=t%
+        \pxjo@process@one{t}\pxjo@w\pxjo@x\pxjo@y{n}%
+      \fi}}}
+
+%--------------------------------------- all done
+\endgroup
+\endinput
+%% EOF

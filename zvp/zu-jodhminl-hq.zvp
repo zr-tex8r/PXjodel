@@ -1,0 +1,31 @@
+(VTITLE )
+(DESIGNSIZE R 10.0)
+(CHECKSUM O 0)
+(FONTDIMEN
+   (SLANT R 0.0)
+   (SPACE R 0.0)
+   (STRETCH R 0.0)
+   (SHRINK R 0.0)
+   (XHEIGHT R 1.0)
+   (QUAD R 1.0)
+   (EXTRASPACE R 0.0)
+   (EXTRASTRETCH R 0.0)
+   (EXTRASHRINK R 0.0)
+   )
+(MAPFONT D 0
+   (FONTNAME otf-ujml-h)
+   (FONTCHECKSUM O 0)
+   (FONTAT R 1.0)
+   (FONTDSIZE R 10.0)
+   )
+(CODESPACE
+   X2018 X2019 X201C X201D
+   )
+(TYPE D 0
+   (CHARWD R 1.0)
+   (CHARHT R 0.9)
+   (CHARDP R 0.1)
+   (MAP
+      (SETCHAR)
+      )
+   )
