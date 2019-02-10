@@ -1,0 +1,227 @@
+% 文字コードは UTF-8
+% uplatex で組版する
+\documentclass[uplatex,dvipdfmx,a4paper]{jsarticle}
+\usepackage{color}
+\definecolor{myblue}{rgb}{0,0,0.75}
+\definecolor{mygreen}{rgb}{0,0.45,0}
+\usepackage[colorlinks,hyperfootnotes=false]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{linkcolor=myblue,urlcolor=mygreen}
+\usepackage{bxtexlogo}
+\bxtexlogoimport{*}
+\usepackage{shortvrb}
+\MakeShortVerb{\|}
+\newcommand{\PkgVersion}{0.2}
+\newcommand{\PkgDate}{2019/02/02}
+\newcommand{\Pkg}[1]{\textsf{#1}}
+\newcommand{\Meta}[1]{$\langle$\mbox{}#1\mbox{}$\rangle$}
+\newcommand{\Note}{\par\noindent ※}
+\newcommand{\Means}{：\ }
+\newcommand{\Strong}[1]{\textbf{#1}}
+%-----------------------------------------------------------
+\begin{document}
+\title{\Pkg{pxjodel} パッケージ}
+\author{八登崇之\ （Takayuki YATO; aka.~``ZR''）}
+\date{v\PkgVersion\quad[\PkgDate]}
+\maketitle
+
+\begin{abstract}
+本パッケージは\Pkg{japanese-otf}パッケージの
+和文フォント設定に対して
+「直接入力に対するTFMを特定の接頭辞を付けた名前のものに変更する」
+という変更を加える。
+例えば、ユーザが指定した接頭辞が|foo|である場合、
+|nmlminr-h|というTFMは|foo--nmlminr-h|に置き換えられる。
+\end{abstract}
+
+%\tableofcontents
+
+%===========================================================
+\section{前提環境}
+\label{sec:Requirement}
+
+\begin{itemize}
+\item {\TeX}フォーマット\Means {\LaTeX}
+\item {\TeX}エンジン\Means {\pTeX}／{\upTeX}（派生も含む）
+\item DVIウェア\Means 和文TFMとVFをサポートするもの
+\item 前提パッケージ\Means
+  \begin{itemize}
+  \item \Pkg{japanese-otf}パッケージ
+  \item \Pkg{ifptex}パッケージ
+  \item \Pkg{xkeyval}パッケージ
+  \end{itemize}
+\end{itemize}
+
+%===========================================================
+\section{何がしたいのか}
+\label{sec:Objective}
+
+{\pLaTeX}の文書作成において、カスタムのメトリックをもった独自の
+和文VFを用いていたとする。
+
+\begin{itemize}
+\item 横組・明朝体（|JY1/mc/m/n|）： |hoge-h|
+\item 縦組・明朝体（|JT1/mc/m/n|）： |hoge-v|
+\item 横組・ゴシック体（|JY1/gt/m/n|）： |hogeg-h|
+\item 縦組・ゴシック体（|JT1/gt/m/n|）： |hogeg-v|
+\end{itemize}
+
+\Note これらのVFは{\pTeX}の原メトリックTFM（|rml|／|gbm|）を
+参照しているものとする。
+
+ここで、以下のような理由で\Pkg{japanese-otf}パッケージを
+使いたくなったとする。
+\begin{enumerate}
+\item 今の設定は単ウェイトであるが、多ウェイトの和文フォントの
+設定（太明朝など）を使いたい。\label{itm:mw}
+\item \Pkg{japanese-otf}パッケージのもつ豊富な文字入力機能
+（|\CID|や|\ajMaru|など）を使いたい。\label{itm:ajm}
+\end{enumerate}
+しかし、単純に\Pkg{japanese-otf}パッケージを読みこんだのでは、
+和文VFが\Pkg{japanese-otf}のものに置き換わっってしまうため、
+カスタムのメトリックが維持されない。
+どうすればいいだろうか。
+
+\medskip
+
+もし\Pkg{japanese-otf}を使う目的が\ref{itm:ajm}だけであるなら、
+\Pkg{japanese-otf}の|noreplace|を使えば済む。
+目的が\ref{itm:mw}だけで場合については、
+「元の|hoge|などのVFを用意できる」人であれば追加のVFを作って
+対応できるであろう。
+（そうでないと対応は困難である。）
+しかし、\ref{itm:mw}と\ref{itm:ajm}の両方を満たす必要がある場合は、
+追加のVFの作製はもっと困難になる。
+\Pkg{japanese-otf}の複雑なVFの内部設計に合わせる必要があるからである。
+
+\medskip
+
+本パッケージは、\Pkg{japanese-otf}のVFを置き換えるための和文VFの
+作成を支援するものである。具体的には
+\begin{quote}
+カスタムのメトリックをもった横組・縦組の和文VFの組があるときに、
+\Pkg{japanese-otf}をそのメトリックで使えるような設定を作り出す
+\end{quote}
+ための作業を容易にする。
+
+%===========================================================
+\section{実際の手順}
+\label{sec:Procedure}
+
+実際に、前述の例に従って、|hoge-h|と|hoge-v|のVFの組
+\footnote{代わりに|hogeg-h|と|hogeg-v|のVFの組を使ってもよい。
+  とにかく入力として使うVFの組みは1つであり、
+  そのメトリックが全部の書体（ウェイト）に対して適用される。}%
+から、そのメトリックを継承した新しい\Pkg{japanese-otf}の
+和文フォント設定を作成するための手順を示す。
+
+使うソフトウェアは次の2つ。
+
+\begin{itemize}
+\item \Pkg{pxjodel}パッケージ（本パッケージ）。
+\item \Pkg{jfmutil}パッケージが提供する|jfmutil|コマンド。
+\end{itemize}
+
+\paragraph{手順}
+最初に一度だけ行う準備作業。
+
+\begin{enumerate}
+\item 入力となる和文VFのファイル
+  （|hoge-h.tfm|、|hoge-h.vf|、|hoge-v.tfm|、|hoge-v.vf|）
+  を{\TeX}から見える場所（カレントディレクトリでもよい）に置く。
+  これらのVFが{\TeX}で使えている状態であれば、
+  既にそうなっているはずである。
+\item 今作ろうとしている設定に対する名前を用意する。
+  これは生成されるVFの名前の接頭辞として使われるので、
+  \Strong{接頭辞}と呼ぶことにする。
+  ここでは“|hoge|”を使うことにする。
+\item 次のコマンドを実行する。
+\begin{quote}\small\begin{verbatim}
+jfmutil jodel hoge-h hoge
+jfmutil jodel hoge-v hoge
+\end{verbatim}\end{quote}
+  \Note 最後の引数は「接頭辞」である。
+
+  これで|hoge--|で始まる名前のVF（|*.tfm|と|*.vf|ファイル）が
+  大量に生成される。
+\item 生成されたVFのファイルを{\TeX}から見える場所に配置する。
+  例えば\Means
+  \begin{itemize}
+  \item |*.tfm| → |$TEXMFHOME/fonts/tfm/public/jodel-hoge/|
+  \item |*.vf| → |$TEXMFHOME/fonts/vf/public/jodel-hoge/|
+  \end{itemize}
+  \Note 末尾のディレクトリの名前は何でもよい。
+  \Note 必要に応じて |mktexlsr|。
+\end{enumerate}
+
+ここで作製した新しい\Pkg{japanese-otf}の設定を
+{\pLaTeX}文書を適用するための手順。
+
+\begin{enumerate}
+\item プレアンブルで\Pkg{japanese-otf}%
+  （{\LaTeX}パッケージ名は|otf|）を読みこんだ後
+  （直後が望ましい）に、\Pkg{pxjodel}パッケージを
+  |prefix=hoge|のオプションを付けて読み込む。
+  例えば以下のようになる。
+\begin{quote}\small\begin{verbatim}
+\usepackage[deluxe,jis2004]{otf}
+\usepackage[prefix=hoge]{pxjodel}
+\end{verbatim}\end{quote}
+  \Note もちろんこの|hoge|は「接頭辞」である。
+  \Note あるいは次のように2つのパッケージの読込をまとめられる。
+\begin{quote}\small\begin{verbatim}
+\usepackage[deluxe,jis2004,prefix=hoge]{pxjodel}
+\end{verbatim}\end{quote}
+\end{enumerate}
+
+%===========================================================
+\section{注意事項}
+\label{sec:Notice}
+
+\begin{itemize}
+\item 先の例では{\pTeX}のVFを用いたが、{\upTeX}のVFを用いる場合
+  でも手順は全く音字である。
+\item 入力とする和文VFは「{\pTeX}または{\upTeX}の標準の日本語用
+  原メトリックTFM」（すなわち
+  |rml|(|v|)、|gbm|(|v|)、
+  uprml-\{|h|,|hq|,|v|\}、upgbm-\{|h|,|hq|,|v|\}
+  の何れか）のみを参照するものでなければならない。
+  \Note ただしこれらのTFMを間接的に（別のVFを挟んで）
+  参照していてもよい。
+\item |jfmutil jodel|の実行において、入力のVFのエンジン種別
+  および書字方向は自動的に判定され、
+  出力のVFの種別もそれに応じたものになる。
+  \begin{itemize}
+  \item 例えば、入力のVFが「{\pTeX}横組用」であれば、出力は
+    |hoge--nmlminr-h|のようになり、
+    入力のVFが「{\upTeX}縦組用」であれば、出力は
+    |hoge--upnmlminr-v|のようになる。
+  \item ただし、参照先のTFMのエンジン種別が混在している場合は、
+    入力のVFは{\pTeX}用と見なされる。
+    ここで{\upTeX}用として扱いたい場合は
+    |jfmutil jodel|に|--uptex|を付ける必要がある。
+  \end{itemize}
+\item |jfmutil jodel|に|--unicode|を付けることで、
+  「\Pkg{pxufont}パッケージを併用した場合の和文VF」
+  を作製できる。
+  この場合は|zu-hoge--upnmlminr-h|のような名前のVFが衆力される。
+  ただし入力のVFは{\upTeX}用に限られ、またその参照先のTFMは
+  全て{\upTeX}用のものでなければならない。    
+\item |jfmutil jodel|を使う場合は、\Pkg{japanese-otf}の|expert|指定に
+  対応する和文VFは作られないため、|expert|を用いることはできない。
+  \Note \Pkg{pxjodel}自体は対応しているので、
+  自力で|hoge--expminr-h|などのVFを作れば、
+  それを適用させることはできる。
+\end{itemize}
+
+%===========================================================
+\section{ところでjodelって何}
+\label{sec:Jodel}
+
+多分、“\underline{j}apanese \underline{o}tf \underline{del}uxe”
+の略、のはず。
+“yodel”ではないことに注意。
+
+%===========================================================
+\end{document}
+%% EOF
