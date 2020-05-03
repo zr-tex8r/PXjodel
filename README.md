@@ -11,6 +11,18 @@ for exmaple, `nmlminr-h` will be replaced by `foo--nmlminr-h`, where
 This function will assist the users who want to use japamese-otf package
 together with tailored TFMs of Japanese fonts.
 
+Note: The name “jodel” stands for “Japanese Otf DELuxe” (and “deluxe”
+is a package option of japanese-otf) and is not at all related to yodel
+singing (although some sense of word-play is intended).
+
+Note: The “jodel” part of the package name stands for “**j**apanese-**o**tf
+**del**uxe”. Here “deluxe” is the name of japanese-otf’s option for
+employing multi-weight Japanese font families. This option is probably the
+most likely reason for using japanese-otf. So this package is really about
+japanese-otf’s “deluxe” option, hence the name. It is not related to
+yodel singing, although some sense of word-play is intended.
+
+
 ### System requirement
 
   * TeX format: LaTeX.
@@ -63,6 +75,8 @@ done through the package option.
 Revision History
 ----------------
 
+  * Version 0.2a 〈2019/02/12〉
+      - Remove unnecessaty files.
   * Version 0.2  〈2019/02/02〉
       - The first public version.
 
