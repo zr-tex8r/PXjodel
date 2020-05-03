@@ -11,8 +11,8 @@
 \bxtexlogoimport{*}
 \usepackage{shortvrb}
 \MakeShortVerb{\|}
-\newcommand{\PkgVersion}{0.2a}
-\newcommand{\PkgDate}{2019/02/12}
+\newcommand{\PkgVersion}{0.3}
+\newcommand{\PkgDate}{2020/05/04}
 \newcommand{\Pkg}[1]{\textsf{#1}}
 \newcommand{\Meta}[1]{$\langle$\mbox{}#1\mbox{}$\rangle$}
 \newcommand{\Note}{\par\noindent ※}
@@ -26,12 +26,10 @@
 \maketitle
 
 \begin{abstract}
-本パッケージは\Pkg{japanese-otf}パッケージの
-和文フォント設定に対して
-「直接入力に対するTFMを特定の接頭辞を付けた名前のものに変更する」
-という変更を加える。
-例えば、ユーザが指定した接頭辞が|foo|である場合、
-|nmlminr-h|というTFMは|foo--nmlminr-h|に置き換えられる。
+本パッケージは、
+カスタムのメトリックをもつ和文フォントを
+\Pkg{japanese-otf}パッケージの多書体設定に拡張する作業を
+支援する機能を提供する。
 \end{abstract}
 
 %\tableofcontents
@@ -53,6 +51,16 @@
 \end{itemize}
 
 %===========================================================
+\section{何をするのか}
+\label{sec:Basic}
+
+\Pkg{japanese-otf}の和文フォント設定に対して
+「直接入力に対するTFMを特定の接頭辞を付けた名前のものに変更する」
+という変更を加える。
+例えば、ユーザが指定した接頭辞が|foo|である場合、
+|nmlminr-h|というTFMは|foo--nmlminr-h|に置き換えられる。
+
+%===========================================================
 \section{何がしたいのか}
 \label{sec:Objective}
 
@@ -60,10 +68,10 @@
 和文VFを用いていたとする。
 
 \begin{itemize}
-\item 横組・明朝体（|JY1/mc/m/n|）： |hoge-h|
-\item 縦組・明朝体（|JT1/mc/m/n|）： |hoge-v|
-\item 横組・ゴシック体（|JY1/gt/m/n|）： |hogeg-h|
-\item 縦組・ゴシック体（|JT1/gt/m/n|）： |hogeg-v|
+\item 横組・明朝体（|JY1/mc/m/n|）： |hogemc-h|
+\item 縦組・明朝体（|JT1/mc/m/n|）： |hogemc-v|
+\item 横組・ゴシック体（|JY1/gt/m/n|）： |hogegt-h|
+\item 縦組・ゴシック体（|JT1/gt/m/n|）： |hogegt-v|
 \end{itemize}
 
 \Note これらのVFは{\pTeX}の原メトリックTFM（|rml|／|gbm|）を
@@ -87,8 +95,8 @@
 もし\Pkg{japanese-otf}を使う目的が\ref{itm:ajm}だけであるなら、
 \Pkg{japanese-otf}の|noreplace|を使えば済む。
 目的が\ref{itm:mw}だけで場合については、
-「元の|hoge|などのVFを用意できる」人であれば追加のVFを作って
-対応できるであろう。
+「元の|hogemc-h|などのVFを用意できる」だけの知識をもつ人であれば
+追加のVFを作って対応できるであろう。
 （そうでないと対応は困難である。）
 しかし、\ref{itm:mw}と\ref{itm:ajm}の両方を満たす必要がある場合は、
 追加のVFの作製はもっと困難になる。
@@ -96,8 +104,9 @@
 
 \medskip
 
-本パッケージは、\Pkg{japanese-otf}のVFを置き換えるための和文VFの
-作成を支援するものである。具体的には
+本パッケージは、\Pkg{jfmutil}と併用することで、
+\Pkg{japanese-otf}のVFを置き換えるための和文VFの
+設定を支援するものである。具体的には
 \begin{quote}
 カスタムのメトリックをもった横組・縦組の和文VFの組があるときに、
 \Pkg{japanese-otf}をそのメトリックで使えるような設定を作り出す
@@ -108,10 +117,10 @@
 \section{実際の手順}
 \label{sec:Procedure}
 
-実際に、前述の例に従って、|hoge-h|と|hoge-v|のVFの組
-\footnote{代わりに|hogeg-h|と|hogeg-v|のVFの組を使ってもよい。
+実際に、前述の例に従って、|hogemc-h|と|hogemc-v|のVFの組
+\footnote{代わりに|hogegt-h|と|hogegt-v|のVFの組を使ってもよい。
   とにかく入力として使うVFの組みは1つであり、
-  そのメトリックが全部の書体（ウェイト）に対して適用される。}%
+  そのメトリックが全部の書体（ファミリ・ウェイト）に対して適用される。}%
 から、そのメトリックを継承した新しい\Pkg{japanese-otf}の
 和文フォント設定を作成するための手順を示す。
 
@@ -122,12 +131,12 @@
 \item \Pkg{jfmutil}パッケージが提供する|jfmutil|コマンド。
 \end{itemize}
 
-\paragraph{手順}
+\paragraph{手順1：VFの生成と配置}
 最初に一度だけ行う準備作業。
 
 \begin{enumerate}
 \item 入力となる和文VFのファイル
-  （|hoge-h.tfm|、|hoge-h.vf|、|hoge-v.tfm|、|hoge-v.vf|）
+  （|hogemc-h.tfm|、|hogemc-h.vf|、|hogemc-v.tfm|、|hogemc-v.vf|）
   を{\TeX}から見える場所（カレントディレクトリでもよい）に置く。
   これらのVFが{\TeX}で使えている状態であれば、
   既にそうなっているはずである。
@@ -137,8 +146,8 @@
   ここでは“|hoge|”を使うことにする。
 \item 次のコマンドを実行する。
 \begin{quote}\small\begin{verbatim}
-jfmutil jodel hoge-h hoge
-jfmutil jodel hoge-v hoge
+jfmutil jodel hogemc-h hoge
+jfmutil jodel hogemc-v hoge
 \end{verbatim}\end{quote}
   \Note 最後の引数は「接頭辞」である。
 
@@ -154,8 +163,9 @@ jfmutil jodel hoge-v hoge
   \Note 必要に応じて |mktexlsr|。
 \end{enumerate}
 
-ここで作製した新しい\Pkg{japanese-otf}の設定を
-{\pLaTeX}文書を適用するための手順。
+\paragraph{手順2：新しいVFの適用}
+手順1で作製した新しいVFを
+{\pLaTeX}文書に適用するための手順。
 
 \begin{enumerate}
 \item プレアンブルで\Pkg{japanese-otf}%
@@ -184,7 +194,7 @@ jfmutil jodel hoge-v hoge
 \item 入力とする和文VFは「{\pTeX}または{\upTeX}の標準の日本語用
   原メトリックTFM」（すなわち
   |rml|(|v|)、|gbm|(|v|)、
-  uprml-\{|h|,|hq|,|v|\}、upgbm-\{|h|,|hq|,|v|\}
+  |uprml-|\{|h|,|hq|,|v|\}、|upgbm-|\{|h|,|hq|,|v|\}
   の何れか）のみを参照するものでなければならない。
   \Note ただしこれらのTFMを間接的に（別のVFを挟んで）
   参照していてもよい。

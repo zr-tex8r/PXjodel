@@ -75,6 +75,8 @@ done through the package option.
 Revision History
 ----------------
 
+  * Version 0.3  〈2020/05/04〉
+      - Add VFs of 'jodhminrn' family.
   * Version 0.2a 〈2019/02/12〉
       - Remove unnecessaty files.
   * Version 0.2  〈2019/02/02〉
