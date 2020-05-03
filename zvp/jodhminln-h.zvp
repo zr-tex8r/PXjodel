@@ -1,0 +1,1084 @@
+(VTITLE JODEL)
+(FAMILY JODEL)
+(FACE F MRR)
+(CODINGSCHEME TEX KANJI TEXT)
+(DESIGNSIZE R 10.0)
+(CHECKSUM O 0)
+(FONTDIMEN
+   (SLANT R 0.0)
+   (SPACE R 0.0)
+   (STRETCH R 0.0)
+   (SHRINK R 0.0)
+   (XHEIGHT R 1.0)
+   (QUAD R 1.0)
+   (EXTRASPACE R 0.0)
+   (EXTRASTRETCH R 0.0)
+   (EXTRASHRINK R 0.0)
+   )
+(MAPFONT D 0
+   (FONTNAME hminln-h)
+   (FONTCHECKSUM O 0)
+   (FONTAT R 1.0)
+   (FONTDSIZE R 10.0)
+   )
+(MAPFONT D 1
+   (FONTNAME otf-cjml-h)
+   (FONTCHECKSUM O 0)
+   (FONTAT R 1.0)
+   (FONTDSIZE R 10.0)
+   )
+(CODESPACE
+   (CTRANGE H 2121 H 217E)
+   (CTRANGE H 2221 H 222E)
+   X223A X223B X223C X223D X223E X223F X2240 X2241 X224A X224B X224C
+   X224D X224E X224F X2250
+   (CTRANGE H 225C H 226A)
+   X2272 X2273 X2274 X2275 X2276 X2277 X2278 X2279 X227E
+   (CTRANGE H 2330 H 2339)
+   (CTRANGE H 2341 H 235A)
+   (CTRANGE H 2361 H 237A)
+   (CTRANGE H 2421 H 2473)
+   (CTRANGE H 2521 H 2576)
+   (CTRANGE H 2621 H 2638)
+   (CTRANGE H 2641 H 2658)
+   (CTRANGE H 2721 H 2741)
+   (CTRANGE H 2751 H 2771)
+   (CTRANGE H 2821 H 2840)
+   (CTRANGE H 3021 H 307E)
+   (CTRANGE H 3121 H 317E)
+   (CTRANGE H 3221 H 327E)
+   (CTRANGE H 3321 H 337E)
+   (CTRANGE H 3421 H 347E)
+   (CTRANGE H 3521 H 357E)
+   (CTRANGE H 3621 H 367E)
+   (CTRANGE H 3721 H 377E)
+   (CTRANGE H 3821 H 387E)
+   (CTRANGE H 3921 H 397E)
+   (CTRANGE H 3A21 H 3A7E)
+   (CTRANGE H 3B21 H 3B7E)
+   (CTRANGE H 3C21 H 3C7E)
+   (CTRANGE H 3D21 H 3D7E)
+   (CTRANGE H 3E21 H 3E7E)
+   (CTRANGE H 3F21 H 3F7E)
+   (CTRANGE H 4021 H 407E)
+   (CTRANGE H 4121 H 417E)
+   (CTRANGE H 4221 H 427E)
+   (CTRANGE H 4321 H 437E)
+   (CTRANGE H 4421 H 447E)
+   (CTRANGE H 4521 H 457E)
+   (CTRANGE H 4621 H 467E)
+   (CTRANGE H 4721 H 477E)
+   (CTRANGE H 4821 H 487E)
+   (CTRANGE H 4921 H 497E)
+   (CTRANGE H 4A21 H 4A7E)
+   (CTRANGE H 4B21 H 4B7E)
+   (CTRANGE H 4C21 H 4C7E)
+   (CTRANGE H 4D21 H 4D7E)
+   (CTRANGE H 4E21 H 4E7E)
+   (CTRANGE H 4F21 H 4F53)
+   (CTRANGE H 5021 H 507E)
+   (CTRANGE H 5121 H 517E)
+   (CTRANGE H 5221 H 527E)
+   (CTRANGE H 5321 H 537E)
+   (CTRANGE H 5421 H 547E)
+   (CTRANGE H 5521 H 557E)
+   (CTRANGE H 5621 H 567E)
+   (CTRANGE H 5721 H 577E)
+   (CTRANGE H 5821 H 587E)
+   (CTRANGE H 5921 H 597E)
+   (CTRANGE H 5A21 H 5A7E)
+   (CTRANGE H 5B21 H 5B7E)
+   (CTRANGE H 5C21 H 5C7E)
+   (CTRANGE H 5D21 H 5D7E)
+   (CTRANGE H 5E21 H 5E7E)
+   (CTRANGE H 5F21 H 5F7E)
+   (CTRANGE H 6021 H 607E)
+   (CTRANGE H 6121 H 617E)
+   (CTRANGE H 6221 H 627E)
+   (CTRANGE H 6321 H 637E)
+   (CTRANGE H 6421 H 647E)
+   (CTRANGE H 6521 H 657E)
+   (CTRANGE H 6621 H 667E)
+   (CTRANGE H 6721 H 677E)
+   (CTRANGE H 6821 H 687E)
+   (CTRANGE H 6921 H 697E)
+   (CTRANGE H 6A21 H 6A7E)
+   (CTRANGE H 6B21 H 6B7E)
+   (CTRANGE H 6C21 H 6C7E)
+   (CTRANGE H 6D21 H 6D7E)
+   (CTRANGE H 6E21 H 6E7E)
+   (CTRANGE H 6F21 H 6F7E)
+   (CTRANGE H 7021 H 707E)
+   (CTRANGE H 7121 H 717E)
+   (CTRANGE H 7221 H 727E)
+   (CTRANGE H 7321 H 737E)
+   X7421 X7422 X7423 X7424 X7425 X7426
+   )
+(TYPE D 0
+   (CHARWD R 1.0)
+   (CHARHT R 0.9)
+   (CHARDP R 0.1)
+   (MAP
+      (SETCHAR)
+      )
+   )
+(CHARACTER H 3029
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 204A)
+      )
+   )
+(CHARACTER H 3032
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F19)
+      )
+   )
+(CHARACTER H 303B
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DD2)
+      )
+   )
+(CHARACTER H 306E
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DD3)
+      )
+   )
+(CHARACTER H 3071
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F1A)
+      )
+   )
+(CHARACTER H 3073
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DD4)
+      )
+   )
+(CHARACTER H 307C
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DD5)
+      )
+   )
+(CHARACTER H 312A
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DD6)
+      )
+   )
+(CHARACTER H 3139
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F2F)
+      )
+   )
+(CHARACTER H 313D
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DDA)
+      )
+   )
+(CHARACTER H 3142
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 3552)
+      )
+   )
+(CHARACTER H 3228
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DDD)
+      )
+   )
+(CHARACTER H 3260
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DDF)
+      )
+   )
+(CHARACTER H 3267
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F1D)
+      )
+   )
+(CHARACTER H 3276
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 3569)
+      )
+   )
+(CHARACTER H 327A
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F2D)
+      )
+   )
+(CHARACTER H 3322
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DE2)
+      )
+   )
+(CHARACTER H 336B
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DE4)
+      )
+   )
+(CHARACTER H 3373
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DE5)
+      )
+   )
+(CHARACTER H 3378
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F42)
+      )
+   )
+(CHARACTER H 344D
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DE8)
+      )
+   )
+(CHARACTER H 3465
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DE9)
+      )
+   )
+(CHARACTER H 352B
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DEA)
+      )
+   )
+(CHARACTER H 3540
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DEB)
+      )
+   )
+(CHARACTER H 3562
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F1E)
+      )
+   )
+(CHARACTER H 3564
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F2E)
+      )
+   )
+(CHARACTER H 3568
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F27)
+      )
+   )
+(CHARACTER H 362A
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DED)
+      )
+   )
+(CHARACTER H 3642
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F20)
+      )
+   )
+(CHARACTER H 364F
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DEE)
+      )
+   )
+(CHARACTER H 3674
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DF0)
+      )
+   )
+(CHARACTER H 367B
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DF1)
+      )
+   )
+(CHARACTER H 367D
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DF2)
+      )
+   )
+(CHARACTER H 3729
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F30)
+      )
+   )
+(CHARACTER H 3737
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DF4)
+      )
+   )
+(CHARACTER H 3764
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F31)
+      )
+   )
+(CHARACTER H 3771
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DFA)
+      )
+   )
+(CHARACTER H 377E
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DFC)
+      )
+   )
+(CHARACTER H 3830
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F34)
+      )
+   )
+(CHARACTER H 3841
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DFE)
+      )
+   )
+(CHARACTER H 392B
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1DFF)
+      )
+   )
+(CHARACTER H 393C
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F37)
+      )
+   )
+(CHARACTER H 3974
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E03)
+      )
+   )
+(CHARACTER H 3979
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F3C)
+      )
+   )
+(CHARACTER H 3A35
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F39)
+      )
+   )
+(CHARACTER H 3A67
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E06)
+      )
+   )
+(CHARACTER H 3B27
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E08)
+      )
+   )
+(CHARACTER H 3B2A
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E09)
+      )
+   )
+(CHARACTER H 3B2C
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E0A)
+      )
+   )
+(CHARACTER H 3B2D
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F38)
+      )
+   )
+(CHARACTER H 3B41
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F22)
+      )
+   )
+(CHARACTER H 3C5D
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E0F)
+      )
+   )
+(CHARACTER H 3C5E
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E10)
+      )
+   )
+(CHARACTER H 3D36
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E12)
+      )
+   )
+(CHARACTER H 3D5D
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 3494)
+      )
+   )
+(CHARACTER H 3D72
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E15)
+      )
+   )
+(CHARACTER H 3D73
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E16)
+      )
+   )
+(CHARACTER H 3E25
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E17)
+      )
+   )
+(CHARACTER H 3E64
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E1C)
+      )
+   )
+(CHARACTER H 3E73
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F3A)
+      )
+   )
+(CHARACTER H 3F2A
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E1D)
+      )
+   )
+(CHARACTER H 3F56
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 3624)
+      )
+   )
+(CHARACTER H 3F60
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E1F)
+      )
+   )
+(CHARACTER H 4022
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E21)
+      )
+   )
+(CHARACTER H 4071
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E24)
+      )
+   )
+(CHARACTER H 4079
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E26)
+      )
+   )
+(CHARACTER H 407A
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F24)
+      )
+   )
+(CHARACTER H 407C
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F25)
+      )
+   )
+(CHARACTER H 407D
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F26)
+      )
+   )
+(CHARACTER H 4127
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E28)
+      )
+   )
+(CHARACTER H 4139
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E29)
+      )
+   )
+(CHARACTER H 414C
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E2A)
+      )
+   )
+(CHARACTER H 4237
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F27)
+      )
+   )
+(CHARACTER H 423D
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E2E)
+      )
+   )
+(CHARACTER H 425C
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E30)
+      )
+   )
+(CHARACTER H 427D
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E35)
+      )
+   )
+(CHARACTER H 4329
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E37)
+      )
+   )
+(CHARACTER H 432E
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E3A)
+      )
+   )
+(CHARACTER H 4337
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 365B)
+      )
+   )
+(CHARACTER H 4370
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E3C)
+      )
+   )
+(CHARACTER H 4375
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E3D)
+      )
+   )
+(CHARACTER H 443D
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E3F)
+      )
+   )
+(CHARACTER H 4448
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E40)
+      )
+   )
+(CHARACTER H 444A
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E41)
+      )
+   )
+(CHARACTER H 4454
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 204B)
+      )
+   )
+(CHARACTER H 4472
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F3E)
+      )
+   )
+(CHARACTER H 4522
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E44)
+      )
+   )
+(CHARACTER H 4527
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E45)
+      )
+   )
+(CHARACTER H 452E
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E46)
+      )
+   )
+(CHARACTER H 4546
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 367D)
+      )
+   )
+(CHARACTER H 4548
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E49)
+      )
+   )
+(CHARACTER H 454B
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E4A)
+      )
+   )
+(CHARACTER H 4552
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E4C)
+      )
+   )
+(CHARACTER H 4654
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E51)
+      )
+   )
+(CHARACTER H 465B
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F3F)
+      )
+   )
+(CHARACTER H 4666
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E56)
+      )
+   )
+(CHARACTER H 4667
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E57)
+      )
+   )
+(CHARACTER H 466A
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E58)
+      )
+   )
+(CHARACTER H 4729
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E59)
+      )
+   )
+(CHARACTER H 4757
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E5B)
+      )
+   )
+(CHARACTER H 4767
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E5C)
+      )
+   )
+(CHARACTER H 4769
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E5D)
+      )
+   )
+(CHARACTER H 477D
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F40)
+      )
+   )
+(CHARACTER H 4824
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E5F)
+      )
+   )
+(CHARACTER H 4840
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F2A)
+      )
+   )
+(CHARACTER H 4854
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E62)
+      )
+   )
+(CHARACTER H 4870
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 34B7)
+      )
+   )
+(CHARACTER H 4875
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E64)
+      )
+   )
+(CHARACTER H 4923
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E66)
+      )
+   )
+(CHARACTER H 492F
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E67)
+      )
+   )
+(CHARACTER H 4935
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E69)
+      )
+   )
+(CHARACTER H 493F
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4EFE)
+      )
+   )
+(CHARACTER H 4940
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E6A)
+      )
+   )
+(CHARACTER H 494E
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E6B)
+      )
+   )
+(CHARACTER H 4960
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F41)
+      )
+   )
+(CHARACTER H 4A43
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E6D)
+      )
+   )
+(CHARACTER H 4A4D
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E6E)
+      )
+   )
+(CHARACTER H 4A4E
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 36BD)
+      )
+   )
+(CHARACTER H 4A53
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F2B)
+      )
+   )
+(CHARACTER H 4A5A
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E6F)
+      )
+   )
+(CHARACTER H 4A5C
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F43)
+      )
+   )
+(CHARACTER H 4A79
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E70)
+      )
+   )
+(CHARACTER H 4B29
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E72)
+      )
+   )
+(CHARACTER H 4B70
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E74)
+      )
+   )
+(CHARACTER H 4B78
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F2C)
+      )
+   )
+(CHARACTER H 4C59
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E76)
+      )
+   )
+(CHARACTER H 4C5F
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E77)
+      )
+   )
+(CHARACTER H 4C62
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F45)
+      )
+   )
+(CHARACTER H 4C6C
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F46)
+      )
+   )
+(CHARACTER H 4C7A
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E79)
+      )
+   )
+(CHARACTER H 4C7C
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E7A)
+      )
+   )
+(CHARACTER H 4D32
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 36FA)
+      )
+   )
+(CHARACTER H 4E7A
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E81)
+      )
+   )
+(CHARACTER H 4E7B
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E82)
+      )
+   )
+(CHARACTER H 4E7C
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F29)
+      )
+   )
+(CHARACTER H 4F31
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E84)
+      )
+   )
+(CHARACTER H 514D
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E89)
+      )
+   )
+(CHARACTER H 5257
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 371F)
+      )
+   )
+(CHARACTER H 527B
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F35)
+      )
+   )
+(CHARACTER H 535E
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1E8D)
+      )
+   )
+(CHARACTER H 5373
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 3724)
+      )
+   )
+(CHARACTER H 5751
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 34E2)
+      )
+   )
+(CHARACTER H 5928
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F37)
+      )
+   )
+(CHARACTER H 6044
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F36)
+      )
+   )
+(CHARACTER H 6131
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F2B)
+      )
+   )
+(CHARACTER H 6134
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F3B)
+      )
+   )
+(CHARACTER H 6156
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4ECF)
+      )
+   )
+(CHARACTER H 635E
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F3D)
+      )
+   )
+(CHARACTER H 6427
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F2A)
+      )
+   )
+(CHARACTER H 6440
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F3D)
+      )
+   )
+(CHARACTER H 6727
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F33)
+      )
+   )
+(CHARACTER H 675B
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 3774)
+      )
+   )
+(CHARACTER H 676A
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F44)
+      )
+   )
+(CHARACTER H 694A
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F32)
+      )
+   )
+(CHARACTER H 6967
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F48)
+      )
+   )
+(CHARACTER H 6A24
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F47)
+      )
+   )
+(CHARACTER H 6B43
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 4F2C)
+      )
+   )
+(CHARACTER H 7057
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 3538)
+      )
+   )
+(CHARACTER H 7159
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 1F43)
+      )
+   )
+(CHARACTER H 726D
+   (MAP
+      (SELECTFONT D 1)
+      (SETCHAR H 37C0)
+      )
+   )

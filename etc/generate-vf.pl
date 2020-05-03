@@ -20,6 +20,8 @@ my @shape = (
 my @zvpname = qw(
 jodhminl-hq
 zu-jodhminl-hq
+jodhminln-h
+jodhminln-v
 );
 
 sub error {
@@ -53,10 +55,15 @@ sub run {
   # following
   foreach (1 .. $#shape) {
     my ($shl, $shs) = @{$shape[$_]};
-    my ($sovf, $suvf) = @zvpname;
-    my ($dovf, $duvf) = map { s/minl/$shl/;$_ } (@{[@zvpname]});
-    run("$jfmutil vfcopy $sovf $dovf otf-cj$shs-h");
-    run("$jfmutil vfcopy $suvf $duvf otf-uj$shs-h");
+    my ($sovf, $suvf, $snhvf, $snvvf) = @zvpname;
+    my ($dovf, $duvf, $dnhvf, $dnvvf) = 
+        map { s/minl/$shl/;$_ } (@{[@zvpname]});
+    run("$jfmutil vfcopy $sovf  $dovf  otf-cj$shs-h");
+    run("$jfmutil vfcopy $suvf  $duvf  otf-uj$shs-h");
+    run("$jfmutil vfcopy $snhvf $dnhvf h${shl}n-h otf-cj$shs-h");
+    run("$jfmutil vfcopy $snvvf $dnvvf h${shl}n-v otf-cj$shs-v");
+    unlink("otf-cj$shs-h.tfm", "otf-cj$shs-v.tfm", "otf-uj$shs-h.tfm");
+    unlink("h${shl}n-h.tfm", "h${shl}n-v.tfm");
   }
   foreach (glob('*.tfm'), glob('*.vf')) {
     move("$_", "../$_");
