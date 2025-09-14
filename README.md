@@ -75,6 +75,8 @@ done through the package option.
 Revision History
 ----------------
 
+  * Version 0.3a 〈2025/09/15〉
+      - Fix base name of maru-gothic family (mgothr).
   * Version 0.3  〈2020/05/04〉
       - Add VFs of 'jodhminrn' family.
   * Version 0.2a 〈2019/02/12〉
