@@ -14,7 +14,7 @@ my @shape = (
   [qw(gothr  gr )],
   [qw(gothb  gb )],
   [qw(gotheb ge )],
-  [qw(mgothe mgr)],
+  [qw(mgothr mgr)],
 );
 
 my @zvpname = qw(
